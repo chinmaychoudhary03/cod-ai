@@ -3,8 +3,12 @@ import { Geist, Geist_Mono, Oxanium } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { QueryClient } from "@tanstack/react-query";
+import { QueryProvider } from "@/components/providers/query-provider";
+import { Toaster } from "@/components/ui/toast";
 
-const oxanium = Oxanium({subsets:['latin'],variable:'--font-sans'});
+
+const oxanium = Oxanium({ subsets: ['latin'], variable: '--font-sans' });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,13 +37,18 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >{children}
-        </ThemeProvider></body>
+        <QueryProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+            <Toaster />
+          </ThemeProvider>
+        </QueryProvider>
+      </body>
     </html>
   );
 }

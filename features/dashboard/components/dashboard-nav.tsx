@@ -12,7 +12,7 @@ import {
 import {
     DASHBOARD_NAV_ITEMS,
     type DashboardRoute,
-} from "./lib/routes";
+} from "../lib/routes";
 import {
     SidebarGroup,
     SidebarGroupContent,

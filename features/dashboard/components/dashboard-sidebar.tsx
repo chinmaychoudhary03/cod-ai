@@ -16,7 +16,7 @@ import {
     SidebarSeparator,
 } from "@/components/ui/sidebar";
 import { UserMenuUser } from "@/features/auth/components/user-menu";
-import { DASHBOARD_ROUTES } from "./lib/routes";
+import { DASHBOARD_ROUTES } from "../lib/routes";
 
 type DashboardSidebarProps = {
     user: UserMenuUser;
